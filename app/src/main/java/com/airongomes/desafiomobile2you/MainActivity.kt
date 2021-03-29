@@ -1,8 +1,12 @@
 package com.airongomes.desafiomobile2you
 
+import android.animation.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ImageView
+import androidx.core.graphics.drawable.toDrawable
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -43,7 +47,38 @@ class MainActivity : AppCompatActivity() {
             adapter.notifyDataSetChanged()
         })
 
+        // Click to call changeIconLike function
+        binding.iconLike.setOnClickListener{
+            changeIconLike(it)
+        }
+
         binding.lifecycleOwner = this
+    }
+
+    /**
+     * Change the icon_like image with ObjectAnimator
+     */
+    private fun changeIconLike(view: View) {
+        val scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 0f)
+        val scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 0f)
+        val animator = ObjectAnimator.ofPropertyValuesHolder(
+            view, scaleX, scaleY)
+        animator.repeatCount = 1
+        animator.repeatMode = ObjectAnimator.REVERSE
+        animator.changeViewState(view)
+        animator.start()
+    }
+
+    /**
+     * Extension function of ObjectAnimator to change state during animation
+     */
+    private fun ObjectAnimator.changeViewState(view: View) {
+        addListener(object : AnimatorListenerAdapter() {
+            override fun onAnimationRepeat(animation: Animator?) {
+                view.isActivated = !view.isActivated
+            }
+        })
+
     }
 }
 
