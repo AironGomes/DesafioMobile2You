@@ -30,11 +30,23 @@ val mapGenre = mapOf(
  */
 fun getGenreName(listId: List<Int>): String {
     return when {
-        listId.size == 1 -> {
+        listId.size == 1 && mapGenre.containsKey(listId[0])-> {
             "${mapGenre[listId[0]]}"
         }
         listId.size > 1 -> {
-            "${mapGenre[listId[0]]}, ${mapGenre[listId[1]]}"
+            var cont = 0
+            var result = ""
+            for(id in listId) {
+                if (mapGenre.containsKey(id) && cont == 0) {
+                    result += mapGenre[id]
+                    cont ++
+                }
+                else if (mapGenre.containsKey(id) && cont == 1) {
+                    result += ", ${mapGenre[id]}"
+                    break
+                }
+            }
+            result
         }
         else -> ""
     }
