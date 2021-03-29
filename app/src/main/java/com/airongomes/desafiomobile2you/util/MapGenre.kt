@@ -1,5 +1,8 @@
 package com.airongomes.desafiomobile2you.util
 
+/**
+ * map with all genres
+ */
 val mapGenre = mapOf(
     28 to "Action",
     12 to "Adventure",
@@ -21,3 +24,29 @@ val mapGenre = mapOf(
     10752 to "War",
     37 to "Western"
 )
+
+/**
+ * This function receive the list of id's and return the matching genres
+ */
+fun getGenreName(listId: List<Int>): String {
+    return when {
+        listId.size == 1 -> {
+            "${mapGenre[listId[0]]}"
+        }
+        listId.size > 1 -> {
+            "${mapGenre[listId[0]]}, ${mapGenre[listId[1]]}"
+        }
+        else -> ""
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
