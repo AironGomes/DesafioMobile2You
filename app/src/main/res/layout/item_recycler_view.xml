@@ -29,16 +29,19 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title_thumbnail"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@{similarMovieInfo.title}"
             android:textColor="@color/white"
             android:textSize="16sp"
-            app:layout_constraintVertical_chainStyle="packed"
+            android:ellipsize="end"
+            android:singleLine="true"
             app:layout_constraintBottom_toTopOf="@+id/info_thumbnail"
+            app:layout_constraintEnd_toStartOf="@+id/check_similar_movie"
             app:layout_constraintStart_toEndOf="@id/image_thumbnail"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:text="Name of the movie" />
 
         <com.google.android.material.textview.MaterialTextView
