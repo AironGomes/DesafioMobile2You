@@ -28,6 +28,9 @@ private val retrofit = Retrofit.Builder()
 interface ApiService {
     @GET("/3/movie/508442?api_key=$KEY&language=en-US")
     suspend fun getMovieInfo(): MovieInfo
+
+    @GET("/3/movie/508442/similar?api_key=$KEY&language=en-US&page=1")
+    suspend fun getSimilarMovies(): SimilarMovies
 }
 
 /**
