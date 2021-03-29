@@ -52,11 +52,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:src="@drawable/ic_favorite_border"
+            android:src="@drawable/change_icon_like_state"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/title_movie"
-            app:layout_constraintBottom_toBottomOf="@id/title_movie"
-            app:tint="@color/white" />
+            app:layout_constraintBottom_toBottomOf="@id/title_movie" />
 
         <ImageView
             android:id="@+id/icon_info_likes"
@@ -66,8 +65,7 @@
             android:src="@drawable/ic_favorite"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/text_info_likes"
-            app:layout_constraintBottom_toBottomOf="@id/text_info_likes"
-            app:tint="@color/white" />
+            app:layout_constraintBottom_toBottomOf="@id/text_info_likes" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/text_info_likes"
@@ -92,7 +90,7 @@
             app:layout_constraintStart_toEndOf="@id/text_info_likes"
             app:layout_constraintTop_toTopOf="@id/text_info_likes"
             app:layout_constraintBottom_toBottomOf="@id/text_info_likes"
-            app:tint="@color/white" />
+            />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/text_info_popularity"
